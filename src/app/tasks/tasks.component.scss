@@ -1,125 +1,147 @@
+h2 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
 table {
   max-width: 70rem;
   width: 100%;
   font-family: 'Poppins', sans-serif;
   border-collapse: collapse;
-  margin: 0 auto;
+  margin: 0 auto 50px;
   overflow-x: hidden;
-}
 
-tr:not(.mat-header-row) {
-  cursor: pointer;
-}
+  tr {
+    &:nth-child(4n + 3) {
+      background-color: #f3f3f3;
+    }
 
-tr.task-detail-row {
-  display: table-row;
-  height: 0;
-}
+    &.task-detail-row {
+      display: table-row;
+      height: 0;
+    }
 
-tr {
-  &:nth-child(4n + 3) {
-    background-color: #f3f3f3;
-  }
+    &:not(.mat-header-row) {
+      cursor: pointer;
+    }
 
-  &.mat-header-row {
-    background-color: #067BC2;
-    border-radius: 10px 10px 0 0;
+    &.task-detail-row {
+      border-bottom: none;
+    }
 
+    &.mat-header-row {
+      background-color: #067BC2;
+      border-radius: 10px 10px 0 0;
+
+      th {
+        &.mat-header-cell {
+          color: white;
+          font-size: 1.2rem;
+          font-weight: bold;
+          padding: 12px 15px;
+
+          &:first-child {
+            border-radius: 5px 0 0 0;
+          }
+
+          &:last-child {
+            border-radius: 0 5px 0 0;
+          }
+        }
+      }
+    }
+
+    td,
     th {
-      &.mat-header-cell {
-        color: white;
-        font-size: 1.2rem;
-        font-weight: bold;
+      &.mat-cell:not(.mat-column-expandedDetail) {
         padding: 12px 15px;
+        border-bottom-width: 2px;
+      }
 
-        &:first-child {
-          border-radius: 5px 0 0 0;
-        }
+      &.mat-column-expandedDetail {
+        border-bottom: none;
+        width: 100%;
+        max-width: 200px;
+      }
 
-        &:last-child {
-          border-radius: 0 5px 0 0;
+      &.mat-column-title {
+        width: 6.25rem;
+        min-width: 6.25rem;
+        max-width: 6.25rem;
+        text-align: left;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      &.mat-column-priority {
+        width: 4.5rem;
+        max-width: 4.5rem;
+        display: none;
+      }
+
+      &.mat-column-dueDate {
+        width: 6.25rem;
+        max-width: 6.25rem;
+      }
+
+      .item-detail {
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        justify-content: left;
+        box-shadow: inset 2px 3px 8px #c1c1c1;
+        border-radius: 5px;
+        text-align: center;
+        width: 100%;
+        max-width: 100%;
+
+        .mat-list-base {
+          .mat-list-item {
+            font-size: 0.8rem;
+            text-align: left;
+            .mat-line {
+              white-space: normal;
+            }
+
+            .detail-index {
+              font-weight: bold;
+              display: inline-block;
+            }
+          }
         }
       }
     }
   }
-}
-
-td.mat-cell:not(.mat-column-expandedDetail) {
-  padding: 12px 15px;
-  border-bottom-width: 2px;
-}
-
-td.mat-column-expandedDetail {
-  border-bottom: none;
-  width: 100%;
-  max-width: 200px;
-}
-
-.item-detail {
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  justify-content: left;
-  box-shadow: inset 2px 3px 8px #c1c1c1;
-  border-radius: 5px;
-  text-align: center;
-  width: 100%;
-  max-width: 100%;
-
-  .mat-list-base {
-    .mat-list-item {
-      font-size: 0.8rem;
-      text-align: left;
-      .mat-line {
-        white-space: normal;
-      }
-
-      .detail-index {
-        font-weight: bold;
-        display: inline-block;
-      }
-    }
-  }
-}
-
-.task-detail-row {
-  border-bottom: none;
-}
-
-.mat-column-title {
-  width: 100px;
-  min-width: 100px;
-  max-width: 100px;
-  text-align: left;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.mat-column-priority {
-  width: 75px;
-  max-width: 75px;
-  display: none;
-
-  @media screen and (min-width: 650px) {
-    display: table-cell;
-  }
-}
-
-.mat-column-dueDate {
-  width: 100px;
-  max-width: 100px;
 }
 
 // Tablet (481px - 768px)
 @media screen and (min-width: 481px) {
-  .mat-column-priority {
-    display: table-cell;
+  table {
+    margin-bottom: 75px;
+
+    tr {
+      td,
+      th{
+        &.mat-column-priority {
+          display: table-cell;
+        }
+      }
+    }
   }
 }
 
 // Laptop and above (>= 769px)
 @media screen and (min-width: 769px) {
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  table {
+    margin-bottom: 100px;
+  }
+
   .mat-row:not(.task-detail-row) {
     &:hover {
       font-weight: bold;
