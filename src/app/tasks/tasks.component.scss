@@ -59,7 +59,7 @@ td.mat-column-expandedDetail {
   position: relative;
   overflow: hidden;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   box-shadow: inset 2px 3px 8px #c1c1c1;
   border-radius: 5px;
   text-align: center;
@@ -68,8 +68,15 @@ td.mat-column-expandedDetail {
 
   .mat-list-base {
     .mat-list-item {
+      font-size: 0.8rem;
+      text-align: left;
       .mat-line {
         white-space: normal;
+      }
+
+      .detail-index {
+        font-weight: bold;
+        display: inline-block;
       }
     }
   }
@@ -109,15 +116,13 @@ td.mat-column-expandedDetail {
   .mat-column-priority {
     display: table-cell;
   }
+}
 
+// Laptop and above (>= 769px)
+@media screen and (min-width: 769px) {
   .mat-row:not(.task-detail-row) {
     &:hover {
       font-weight: bold;
     }
   }
-}
-
-// Laptop and above (>= 769px)
-@media screen and (min-width: 769px) {
-
 }

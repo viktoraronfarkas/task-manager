@@ -19,13 +19,22 @@
       <div class="row item-detail" [@detailExpand]="task.isExpanded ? 'expanded' : 'collapsed'">
         <mat-list>
           <mat-list-item class="list-item">
-            <div mat-line>Task ID: {{task.id}}</div>
+            <div mat-line>
+              <div class="detail-index">Title: </div>
+              {{task.title}}
+            </div>
           </mat-list-item>
-          <mat-list-item>
-            <div mat-line class="list-item">Title: {{task.title}}</div>
+          <mat-list-item class="list-item">
+            <div mat-line>
+              <div class="detail-index">Description: </div>
+              {{task.description}}
+            </div>
           </mat-list-item>
-          <mat-list-item>
-            <div mat-line class="list-item">Description: {{task.description}}</div>
+          <mat-list-item class="list-item">
+            <div mat-line>
+              <div class="detail-index">Task ID: </div>
+              {{task.id}}
+            </div>
           </mat-list-item>
         </mat-list>
       </div>
@@ -61,16 +70,28 @@
       <div class="row item-detail" [@detailExpand]="task.isExpanded ? 'expanded' : 'collapsed'">
         <mat-list>
           <mat-list-item class="list-item">
-            <div mat-line>Task ID: {{task.id}}</div>
+            <div mat-line>
+              <div class="detail-index">Title: </div>
+              {{task.title}}
+            </div>
           </mat-list-item>
-          <mat-list-item>
-            <div mat-line class="list-item">Title: {{task.title}}</div>
+          <mat-list-item class="list-item">
+            <div mat-line>
+              <div class="detail-index">Description: </div>
+              {{task.description}}
+            </div>
           </mat-list-item>
-          <mat-list-item>
-            <div mat-line class="list-item">Description: {{task.description}}</div>
+          <mat-list-item class="list-item">
+            <div mat-line>
+              <div class="detail-index">Resolved at: </div>
+              {{task.resolvedAt}}
+            </div>
           </mat-list-item>
-          <mat-list-item>
-            <div mat-line class="list-item">Resolved at: {{task.resolvedAt}}</div>
+          <mat-list-item class="list-item">
+            <div mat-line>
+              <div class="detail-index">Task ID: </div>
+              {{task.id}}
+            </div>
           </mat-list-item>
         </mat-list>
       </div>
