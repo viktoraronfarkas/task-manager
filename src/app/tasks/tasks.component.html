@@ -1,0 +1,85 @@
+<table mat-table [dataSource]="dataSource" multiTemplateDataRows>
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef>Title</th>
+    <td mat-cell *matCellDef="let task">{{task.title}}</td>
+  </ng-container>
+  <ng-container matColumnDef="priority">
+    <th mat-header-cell *matHeaderCellDef>Priority</th>
+    <td mat-cell *matCellDef="let task">{{task.priority}}</td>
+  </ng-container>
+  <ng-container matColumnDef="dueDate">
+    <th mat-header-cell *matHeaderCellDef>Due date</th>
+    <td mat-cell *matCellDef="let task">{{task.dueDate | date:'longDate'}}</td>
+  </ng-container>
+
+  <!-- Template for details row -->
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let task" [attr.colspan]="displayedColumns.length">
+
+      <div class="row item-detail" [@detailExpand]="task.isExpanded ? 'expanded' : 'collapsed'">
+        <mat-list>
+          <mat-list-item class="list-item">
+            <div mat-line>Task ID: {{task.id}}</div>
+          </mat-list-item>
+          <mat-list-item>
+            <div mat-line class="list-item">Title: {{task.title}}</div>
+          </mat-list-item>
+          <mat-list-item>
+            <div mat-line class="list-item">Description: {{task.description}}</div>
+          </mat-list-item>
+        </mat-list>
+      </div>
+
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let task; columns: displayedColumns;" (click)="task.isExpanded = !task.isExpanded"></tr>
+
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="task-detail-row"></tr>
+</table>
+
+<h2>Resolved</h2>
+<table mat-table [dataSource]="resolvedDataSource" multiTemplateDataRows>
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef>Title</th>
+    <td mat-cell *matCellDef="let task">{{task.title}}</td>
+  </ng-container>
+  <ng-container matColumnDef="priority">
+    <th mat-header-cell *matHeaderCellDef>Priority</th>
+    <td mat-cell *matCellDef="let task">{{task.priority}}</td>
+  </ng-container>
+  <ng-container matColumnDef="dueDate">
+    <th mat-header-cell *matHeaderCellDef>Due date</th>
+    <td mat-cell *matCellDef="let task">{{task.dueDate | date:'longDate'}}</td>
+  </ng-container>
+
+  <!-- Template for details row -->
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let task" [attr.colspan]="displayedColumns.length">
+
+      <div class="row item-detail" [@detailExpand]="task.isExpanded ? 'expanded' : 'collapsed'">
+        <mat-list>
+          <mat-list-item class="list-item">
+            <div mat-line>Task ID: {{task.id}}</div>
+          </mat-list-item>
+          <mat-list-item>
+            <div mat-line class="list-item">Title: {{task.title}}</div>
+          </mat-list-item>
+          <mat-list-item>
+            <div mat-line class="list-item">Description: {{task.description}}</div>
+          </mat-list-item>
+          <mat-list-item>
+            <div mat-line class="list-item">Resolved at: {{task.resolvedAt}}</div>
+          </mat-list-item>
+        </mat-list>
+      </div>
+
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let task; columns: displayedColumns;" (click)="task.isExpanded = !task.isExpanded"></tr>
+
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="task-detail-row"></tr>
+</table>
