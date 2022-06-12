@@ -137,18 +137,5 @@ export class TasksComponent implements OnInit {
       }
     }, 1000, 10000);
   }
-
-  // Toggle Rows
-  toggleTableRows() {
-    this.isTableExpanded = !this.isTableExpanded;
-
-    this.dataSource.forEach((row: any) => {
-      row.isExpanded = this.isTableExpanded;
-    });
-
-    this.resolvedDataSource.forEach((row: any) => {
-      row.isExpanded = this.isTableExpanded;
-    });
-  }
 }
 
